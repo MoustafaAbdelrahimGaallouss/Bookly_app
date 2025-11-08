@@ -5,6 +5,6 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Splash View Body  1'));
+    return const Center(child: Text('Splash View Body'));
   }
 }
