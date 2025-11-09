@@ -1,38 +1,30 @@
-import 'package:bookly_app/core/utils/assets_data.dart';
+import 'package:bookly_app/Features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:bookly_app/Features/home/presentation/widgets/featured_book_item.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [const CustomAppBar()]);
+    return Column(children: const [CustomAppBar(), FeaturedBookListView()]);
   }
 }
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class FeaturedBookListView extends StatelessWidget {
+  const FeaturedBookListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(AssetsData.logo, height: 20),
-          IconButton(
-            icon: const Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 24,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              // Handle search button press
-            },
-          ),
-        ],
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.25,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: const FeaturedBookItem(),
+        ),
       ),
     );
   }
