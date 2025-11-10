@@ -25,5 +25,3 @@ class BooklyApp extends StatelessWidget {
     );
   }
 }
-
-//montserrat
